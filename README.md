@@ -14,7 +14,7 @@
 
 ## 技术栈
 
-- v1: Express.js + Bootstrap
+- v1: Express.js + Bootstrap + Webpack
 - v2: Express.js + React + Redux + React Router
 - v3: Express.js + Vue + Vuex + Vue Router
 - v4: Koa.js + React + Redux + React Router + JWT

@@ -1,0 +1,26 @@
+{
+  "name": "js-shareholder-meeting",
+  "version": "1.0.0",
+  "description": "一个股东会辅助软件",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/szy0syz/JS-Shareholder-Meeting.git"
+  },
+  "author": "szy0syz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/szy0syz/JS-Shareholder-Meeting/issues"
+  },
+  "homepage": "https://github.com/szy0syz/JS-Shareholder-Meeting#readme",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "express": "^4.16.2"
+  },
+  "devDependencies": {
+    "webpack": "^3.10.0"
+  }
+}
