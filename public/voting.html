@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>股东签到</title>
+  <title>股东投票</title>
   <link href="../public/css/bootstrap.min.css" rel="stylesheet">
   <link href="../public/css/bootstrap-theme.min.css" rel="stylesheet">
   <link href="https://cdn.bootcss.com/bootstrap-table/1.11.1/bootstrap-table.min.css" rel="stylesheet">
@@ -19,16 +19,16 @@
 <body>
 
 <div class="container">
-  <h2 class="text-center" style="padding-bottom: 15px;margin-bottom: 15px;border-bottom: 2px solid #eee;">股东签到</h2>
+  <h2 class="text-center" style="padding-bottom: 15px;margin-bottom: 15px;border-bottom: 2px solid #eee;">股东表决结果录入</h2>
   <div class="row">
     <div class="col-md-6">
       <form>
-        <label for="barcode" class="sr-only">股东编码：</label>
-        <input type="text" id="barcode" name="barcode" class="form-control" placeholder="股东编码" required autofocus>
+        <label for="result" class="sr-only">股东表决结果：</label>
+        <input type="text" id="result" name="result" class="form-control" placeholder="股东编码+表决结果" required autofocus>
       </form>
     </div>
     <div class="col-md-6">
-      <button type="button" class="btn btn-primary btn-md">签 &nbsp; 到</button>
+      <button type="button" class="btn btn-primary btn-md">确  定</button>
     </div>
   </div>
   <div class="row">
@@ -37,19 +37,40 @@
       <tr>
         <th>股东编码</th>
         <th>股东名称</th>
-        <th>签到时间</th>
+        <th>事项一结果</th>
+        <th>事项二结果</th>
+        <th>事项三结果</th>
+        <th>事项四结果</th>
+        <th>事项五结果</th>
       </tr>
       </thead>
       <tbody>
       <tr>
         <td>1</td>
         <td>Item 1</td>
-        <td>2018-02-27 09:31</td>
+        <td>同意</td>
+        <td>同意</td>
+        <td>同意</td>
+        <td>同意</td>
+        <td>弃权</td>
       </tr>
       <tr>
         <td>2</td>
         <td>Item 2</td>
-        <td>2018-02-27 09:34</td>
+        <td>不同意</td>
+        <td>不同意</td>
+        <td>同意</td>
+        <td>同意</td>
+        <td>弃权</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Item 3</td>
+        <td>弃权</td>
+        <td>不同意</td>
+        <td>同意</td>
+        <td>不同意</td>
+        <td>同意</td>
       </tr>
       </tbody>
     </table>
