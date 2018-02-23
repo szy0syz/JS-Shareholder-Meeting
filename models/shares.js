@@ -1,6 +1,6 @@
 //股东股份表
 const mongoose = require('mongoose')
-const Schema = mognoose.Schema
+const Schema = mongoose.Schema
 
 const SharesSchema = new Schema({
   barCode: Number,
