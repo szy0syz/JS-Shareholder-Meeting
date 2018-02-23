@@ -4,7 +4,7 @@ import express from './config/express'
 const config = require('./config')
 
 // 马上就要改咯~
-const db = require('./middlewares/database')
+// const db = require('./middlewares/database')
 
 // 合并绝对路径的
 const r = path => resolve(__dirname, path)
@@ -14,7 +14,20 @@ const MIDDLEWARES = ['database']
 class APP {
   constructor() {
     this.app = express
-    db.database(this.app)
+    this.useMiddlewares(this.app)(MIDDLEWARES)
+    // db.database(this.app)
+  }
+
+  useMiddlewares(app) {
+    //原来使用方法：
+    //  app.use(mid1)
+    //  app.use(mid2)
+    //  app.use(mid3)
+    return R.map()(R.compose(
+      R.map(i => i(app)),
+      require,
+      i => `${r('./middlewares')}/${i}`
+    ))
   }
 
   async start() {
