@@ -1,12 +1,10 @@
 import express from './config/express'
-import database from './middlewares/database'
-console.log('~~~~~',database)
 const config = require('./config')
+const db = require('./middlewares/database')
 
 const app = express
-
-database(app)
+db.database(app)
 
 app.listen(config.port, () => {
-  console.log('Server started ', 'listening on port: ', config.port)
+  console.log('Server started,', 'listening on port: ', config.port)
 })

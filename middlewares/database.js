@@ -1,7 +1,7 @@
 import fs from 'fs'
 import { resolve } from 'path'
 import mongoose from 'mongoose'
-const config = require('./index')
+const config = require('../config')
 
 const modelPath = resolve(__dirname, '../models')
 
@@ -13,7 +13,6 @@ export const database = app => {
   if (config.isDev) {
     mongoose.set('debug', true)
   }
-  console.log(app)
 
   mongoose.connect(config.mongodb)
 
