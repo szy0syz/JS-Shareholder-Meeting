@@ -14,7 +14,7 @@
 
 ## 技术栈
 
-- v1: Express.js + Bootstrap + Pug + MongoDO
-- v2: Express.js + React + Redux + React Router + MongoDO
+- v1: Express.js + Bootstrap + Pug + MongoDB
+- v2: Express.js + React + Redux + React Router + MongoDB
 - v3: Express.js + Vue + Vuex + Vue Router + MongoDO
-- v4: Koa.js + React + Redux + React Router + JWT + MongoDO
+- v4: Koa.js + React + Redux + React Router + JWT + MongoDB
