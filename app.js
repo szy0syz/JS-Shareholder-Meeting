@@ -1,7 +1,9 @@
 import express from './config/express'
-
+let config = require('./config')
+console.log(config)
 const app = express
 
-console.log('server started... port: ' + 8077)
 
-app.listen(8077)
+app.listen(config.port, () => {
+  console.log('Server started ', 'listening on port: ', config.port)
+})

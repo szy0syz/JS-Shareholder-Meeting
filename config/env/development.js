@@ -1,4 +1,4 @@
-module.export = {
-  prot: 8020,
+module.exports = {
+  port: 8020,
   mongodb: 'mongodb://localhost/meeting'
 }
