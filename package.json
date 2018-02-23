@@ -28,6 +28,7 @@
     "formidable": "^1.1.1",
     "mongoose": "^5.0.6",
     "pug": "^2.0.0-rc.4",
+    "ramda": "^0.25.0",
     "supervisor": "^0.12.0",
     "winston": "^2.4.0"
   },
