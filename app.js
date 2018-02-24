@@ -9,7 +9,7 @@ const config = require('./config')
 // 合并绝对路径的
 const r = path => resolve(__dirname, path)
 // 声明需要加载的中间件
-const MIDDLEWARES = ['database']
+const MIDDLEWARES = config.middlewares
 
 class APP {
   constructor() {
