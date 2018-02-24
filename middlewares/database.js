@@ -7,12 +7,7 @@ const modelPath = resolve(__dirname, '../models')
 
 fs.readdirSync(modelPath)
   .filter(filename => ~filename.search(/\.js$/))
-  .forEach(filename => {
-    console.log(resolve(modelPath, filename))
-    require(resolve(modelPath, filename))
-  })
-
-//.forEach(filename => require(resolve(modelPath, filename)))
+  .forEach(filename => require(resolve(modelPath, filename)))
 
 export const database = app => {
   if (config.isDev) {

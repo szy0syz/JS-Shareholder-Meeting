@@ -9,12 +9,8 @@ app.set('views', './views')
 
 app.use(bodyParser.json())
 
-require('../routes/home')(app)
-require('../routes/vote')(app)
-require('../routes/sign')(app)
-
-app.use((err, req, res, next) => {
-  res.send('找不到此路由')
-})
+// app.use((err, req, res, next) => {
+//   res.send('找不到此路由')
+// })
 
 export default app

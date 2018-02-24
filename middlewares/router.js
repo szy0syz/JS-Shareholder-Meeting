@@ -1,5 +1,10 @@
-// 应该加个控制器哦~
+import fs from 'fs'
+import { resolve } from 'path'
+
+const routePath = resolve(__dirname, '../routes')
+
 export const router = app => {
-  app.route('/')
-    .get()
+  fs.readdirSync(routePath)
+    .filter(filename => ~filename.search(/\.js$/))
+    .forEach(filename => require(resolve(routePath, filename))(app))
 }
