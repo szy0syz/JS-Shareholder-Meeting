@@ -15,6 +15,7 @@ class APP {
     this.app.set('views', './views')
     this.app.set('view engine', 'pug')
     this.app.use(express.static('./public'))
+    this.app.use(bodyParser.urlencoded({ extended: false }))
     this.useMiddlewares(this.app)(MIDDLEWARES)
   }
 

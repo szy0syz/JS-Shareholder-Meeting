@@ -7,12 +7,14 @@ module.exports = {
   home: (req, res, next) => {
     res.send('signing page')
   },
-  sign: (req, res, next) => {
+  sign: async (req, res, next) => {
     try {
-      const barCode = parseInt(req.query.barCode, 10)
-      const shareholder = Shares.findOne({
+      const barCode = parseInt(req.body.barCode, 10)
+      
+      const shareholder = await Shares.findOne({
         barCode: barCode
       }).exec()
+      console.log(shareholder)
       if (shareholder) {
         shareholder.isPresent = true
         shareholder.signTime = Date.now()
