@@ -25,8 +25,21 @@ const SharesSchema = new Schema({
   }
 })
 
-SharesSchema.pre('save', function (next) { })
+// SharesSchema.pre('save', function (next) { })
 
-SharesSchema.statics = {}
+// SharesSchema.statics = {
+//   async signIn(data) {
+//     let shareholder = await this.findOne({
+//       barCode: data.barCode
+//     }).exec()
+//     if(shareholder) {
+//       shareholder.isPresent = 1
+//       shareholder.signTime = Date.now()
+      
+//     } else {
+
+//     }
+//   }
+// }
 
 const Shares = mongoose.model('Shares', SharesSchema)
