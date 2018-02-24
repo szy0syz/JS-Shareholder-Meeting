@@ -1,10 +1,13 @@
 import express from 'express'
+import bodyParser from 'body-parser'
 // import winston    from 'winston'
 
 const app = express()
 app.use(express.static('./public'))
 app.set('view engine', 'pug')
 app.set('views', './views')
+
+app.use(bodyParser.json())
 
 require('../routes/home')(app)
 require('../routes/vote')(app)

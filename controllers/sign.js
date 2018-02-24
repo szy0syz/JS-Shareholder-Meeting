@@ -49,6 +49,6 @@ module.exports = {
 
   },
   getByBarCode: (req,res,next, key, value) => {
-    
+    const barCode = parseInt(req.query.barCode, 10)
   }
 }

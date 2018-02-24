@@ -41,5 +41,5 @@ const SharesSchema = new Schema({
 //     }
 //   }
 // }
-
+console.log('~~~~~~~~~~~~执行了model.shares')
 const Shares = mongoose.model('Shares', SharesSchema)
