@@ -23,18 +23,18 @@ module.exports = {
       }
       shareholder.save()
 
-      let ary = await Shares.where({ isVote: false }).sort({ barCode: 1 })
-      let noVotes
-      if (ary.length <= 15) {
-        noVotes = ary.map((item) => {
-          return item.name
-        })
-      }
+      // let ary = await Shares.where({ isVote: false }).sort({ barCode: 1 })
+      // let noVotes
+      // if (ary.length <= 15) {
+      //   noVotes = ary.map((item) => {
+      //     return item.name
+      //   })
+      // }
       res.json({
         ok: 1,
         msg: '股东签到成功',
         name: shareholder.name,
-        noVotes: noVotes ? noVotes : null
+        noVotes: await Shares.getNoVotes(15) //如果未表决股东少于15人时返回名单
       })
     } else {
       res.json({

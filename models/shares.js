@@ -47,19 +47,22 @@ const SharesSchema = new Schema({
 
 // SharesSchema.pre('save', function (next) { })
 
-// SharesSchema.statics = {
-//   async signIn(data) {
-//     let shareholder = await this.findOne({
-//       barCode: data.barCode
-//     }).exec()
-//     if(shareholder) {
-//       shareholder.isPresent = 1
-//       shareholder.signTime = Date.now()
-      
-//     } else {
+SharesSchema.statics = {
+  async getNoVotes(num) {
+    let res = null
+    let ary = await this.where({ isVote: false }).sort({ barCode: 1 })
+    console.log(num)
+    if (ary.length <= num) {
+      res = ary.map((item) => { return item.name })
+    }
+    console.log('res___' + res)
+    return res
+  },
+  async getStats() {
 
-//     }
-//   }
-// }
+    const totalShares = 5370
+    const reallyShares = 0
+  }
+}
 
 const Shares = mongoose.model('Shares', SharesSchema)
