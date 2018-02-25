@@ -14,7 +14,6 @@ module.exports = {
       const shareholder = await Shares.findOne({
         barCode: barCode
       }).exec()
-      console.log(shareholder)
       if (shareholder) {
         shareholder.isPresent = true
         shareholder.signTime = Date.now()

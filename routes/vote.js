@@ -1,5 +1,7 @@
 const VoteContoller = require('../controllers/vote')
 
 module.exports = function (app) {
-  app.route('/vote').get(VoteContoller.home)
+  app.route('/vote')
+    .get(VoteContoller.home)
+    .post(VoteContoller.vote)
 }

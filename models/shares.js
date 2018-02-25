@@ -22,7 +22,27 @@ const SharesSchema = new Schema({
   isVote: {
     type: Boolean,
     default: false
-  }
+  },
+  t0: Number,
+  t1: Number,
+  t2: Number,
+  t3: Number,
+  t4: Number,
+  t5: Number,
+  t6: Number,
+  t7: Number,
+  t8: Number,
+  t9: Number,
+  t10: Number,
+  t11: Number,
+  t12: Number,
+  t13: Number,
+  t14: Number,
+  t15: Number,
+  t16: Number,
+  t17: Number,
+  t18: Number,
+  t19: Number
 })
 
 // SharesSchema.pre('save', function (next) { })
