@@ -81,6 +81,7 @@ SharesSchema.statics = {
       statsDetail.push(tmp)
     }
     tmp = null
+    console.log(statsDetail)
     return {
       totalShares,
       signHolders,

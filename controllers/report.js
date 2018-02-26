@@ -1,8 +1,14 @@
+import ejs from 'ejs'
 import mongoose from 'mongoose'
 
 const Shares = mongoose.model('Shares')
 
 const stats = (a, b = 1, num = 2) => (a / b * 100).toFixed(num)
+
+function print() {
+  const voteList = ['同意', '不同意', '弃权']
+  const tpl = `弃权 万股，占参加投票股东所持有表决权股份总数的 %`
+}
 
 module.exports = {
   index: async (req, res) => {
