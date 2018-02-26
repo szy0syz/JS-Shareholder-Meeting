@@ -9,7 +9,7 @@ module.exports = {
   },
   sign: async (req, res, next) => {
     try {
-      const barCode = parseInt(req.body.barCode, 10)
+      const barCode = parseInt(req.params.barCode || req.body.barCode || 0, 10)
       const allShareHolders = await Shares.find({}, { _id: 0, __v: 0, voteTime: 0, signTime: 0 }).sort({ barCode: 1 }).exec()
       const signHolders = allShareHolders.filter(h => h.isPresent === true).map(h => h.name)
       const noSignHolders = allShareHolders.filter(h => h.isPresent === false).map(h => h.name)
