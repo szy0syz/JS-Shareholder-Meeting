@@ -14,10 +14,10 @@ function print(opt) {
 三、提案审议情况
     大会以记名投票表决的方式审议并通过以下议案：
     <% for(let i = 0; i < data.length; i++) {%>
-      <%= i+1 %>、
-      <% for(let j = 0; j < data[i].length; j++) {%>
-        <% if(!!data[i][j].val) { %> <%= voteList[data[i][j].val] %><%= data[i][j].sum %>万股，占参加投票股东所持有表决权股份总数的<%= stats(data[i][j].sum, voteShares, 4) %>% <% } %>
-      <% } %>
+    <%= i+1 %>、
+    <% for(let j = 0; j < data[i].length; j++) {%>
+      <% if(!!data[i][j].val) { %> <%= voteList[data[i][j].val] %><%= data[i][j].sum %>万股，占参加投票股东所持有表决权股份总数的<%= stats(data[i][j].sum, voteShares, 4) %>% <% } %>
+    <% } %>
     <% } %>
   `
   return ejs.render(tpl, {
