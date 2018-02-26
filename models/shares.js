@@ -59,16 +59,21 @@ SharesSchema.statics = {
     return res
   },
   async getStats(num) {
-    // 只要即签到又表决的
-    let shareholders = await this.find({ isPresent: true, isVote: true }, { _id: 0, __v: 0, voteTime: 0, signTime: 0, isPresent: 0, isVote: 0, type: 0 }).sort({ barCode: 1 }).exec()
+    // 只要即签到又表决的 isPresent: true , isVote: true
+    let allShareholders = await this.find({}, { _id: 0, __v: 0, voteTime: 0, signTime: 0 }).sort({ barCode: 1 }).exec()
+    let signShareholders = allShareholders.filter(h => h.isPresent === true)
+    let voteSharesholders = allShareholders.filter(h => h.isVote === true)
     const statsCount = num
-    const totalShares = 5370 //写死
-    const rvHolders = shareholders.length
-    const rvShares = util.sumByColumnName(shareholders, 'shares')
+    const totalShares = util.sumByColumnName(allShareholders, 'shares').toFixed()
+    const signShares = util.sumByColumnName(signShareholders, 'shares')
+    const signHolders = signShareholders.length
+    const voteHloders = voteSharesholders.length
+    const noVoteHolders = allShareholders.filter(h => h.isPresent === true && h.isVote === false).map(h => h.name)
+    const voteShares = util.sumByColumnName(voteSharesholders, 'shares')
     let statsDetail = []
     let tmp
     for (let i = 0; i < 5; i++) {
-      tmp = util.filterAndGroupAndSumByColumn(shareholders, {
+      tmp = util.filterAndGroupAndSumByColumn(voteSharesholders, {
         group: (item) => item['t' + i],
         colName: 'shares',
         index: i
@@ -78,8 +83,11 @@ SharesSchema.statics = {
     tmp = null
     return {
       totalShares,
-      rvHolders,
-      rvShares,
+      signHolders,
+      signShares,
+      voteHloders,
+      voteShares,
+      noVoteHolders,
       statsDetail
     }
   }
