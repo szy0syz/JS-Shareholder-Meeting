@@ -7,7 +7,8 @@ module.exports = {
   },
   vote: async (req, res, next) => {
     // todo: 验证data
-    const data = req.body.data
+    const data = (req.params.voteData || req.body.data || 0) + ''
+    console.log(data)
     const barCode = data.slice(0, 5)
     const stats = data.slice(5)
     const shareholder = await Shares.findOne({
@@ -25,7 +26,7 @@ module.exports = {
 
       res.json({
         ok: 1,
-        msg: '股东签到成功',
+        msg: '股东表决成功',
         name: shareholder.name,
         noVotes: await Shares.getNoVotes(15) //如果未表决股东少于15人时返回名单
       })
