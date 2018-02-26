@@ -10,10 +10,10 @@ module.exports = {
   sign: async (req, res, next) => {
     try {
       const barCode = parseInt(req.body.barCode, 10)
-      
-      const shareholder = await Shares.findOne({
-        barCode: barCode
-      }).exec()
+      const allShareHolders = await Shares.find({}, { _id: 0, __v: 0, voteTime: 0, signTime: 0 }).sort({ barCode: 1 }).exec()
+      const signHolders = allShareHolders.filter(h => h.isPresent === true).map(h => h.name)
+      const noSignHolders = allShareHolders.filter(h => h.isPresent === false).map(h => h.name)
+      const shareholder = await Shares.findOne({ barCode }).exec()
       if (shareholder) {
         shareholder.isPresent = true
         shareholder.signTime = Date.now()
@@ -22,7 +22,9 @@ module.exports = {
           res.json({
             ok: 1,
             msg: '签到成功',
-            name: shareholder.name
+            name: shareholder.name,
+            signHolders,
+            noSignHolders
           })
         } catch (err) {
           console.log('保存股东签到失败')
@@ -49,7 +51,7 @@ module.exports = {
   get: (req, res, next) => {
 
   },
-  getByBarCode: (req,res,next, key, value) => {
+  getByBarCode: (req, res, next, key, value) => {
     const barCode = parseInt(req.query.barCode, 10)
   }
 }
