@@ -8,7 +8,6 @@ module.exports = {
   vote: async (req, res, next) => {
     // todo: 验证data
     const data = (req.params.voteData || req.body.data || 0) + ''
-    console.log(data)
     const barCode = data.slice(0, 5)
     const stats = data.slice(5)
     const shareholder = await Shares.findOne({
@@ -36,5 +35,9 @@ module.exports = {
         msg: '此股东并未签到'
       })
     }
+  },
+  getAll: async (req, res) => {
+    const list = await Shares.find({ isVote: 1 }, { _id: 0, __v: 0, type: 0, voteTime: 0, signTime: 0, isPresent: 0, isVote: 0 }).exec()
+    res.json(list)
   }
 }

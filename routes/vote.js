@@ -7,4 +7,7 @@ module.exports = function (app) {
 
   app.route('/vote/:voteData')
     .get(VoteContoller.vote)
+  
+  app.route('/getAllVotes')
+    .get(VoteContoller.getAll)
 }
