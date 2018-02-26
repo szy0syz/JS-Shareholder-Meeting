@@ -67,7 +67,7 @@ SharesSchema.statics = {
     const totalShares = util.sumByColumnName(allShareholders, 'shares').toFixed()
     const signShares = util.sumByColumnName(signShareholders, 'shares')
     const signHolders = signShareholders.length
-    const voteHloders = voteSharesholders.length
+    const voteHolders = voteSharesholders.length
     const noVoteHolders = allShareholders.filter(h => h.isPresent === true && h.isVote === false).map(h => h.name)
     const voteShares = util.sumByColumnName(voteSharesholders, 'shares')
     let statsDetail = []
@@ -85,7 +85,7 @@ SharesSchema.statics = {
       totalShares,
       signHolders,
       signShares,
-      voteHloders,
+      voteHolders,
       voteShares,
       noVoteHolders,
       statsDetail
