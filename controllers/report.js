@@ -13,6 +13,11 @@ function print() {
 module.exports = {
   index: async (req, res) => {
     const data = await Shares.getStats()
+    for (let i = 0; i < data.length; i++) {
+      for (let j = 0; j < data[i].length; j++) {
+        
+      }
+    }
     // const result = `
     //   二、参会股东情况\n
     //       参加本次会议的股东及股东授权代表${data.signHolders}人，代表股份${data.signShares}万股，占公司表决权总股份数的${stats(data.signShares, data.totalShares)}%，参会股东所代表的股份数占公司总股份数的份额符合《公司法》规定。\n
@@ -34,4 +39,31 @@ module.exports = {
 }
 
 
-
+/*
+[ 
+  [ 
+    { title: 0, val: '1', count: 6, sum: 4589.1177 },
+    { title: 0, val: '3', count: 2, sum: 16.2346 } 
+  ],
+  [ 
+    { title: 1, val: '1', count: 5, sum: 4584.1777 },
+    { title: 1, val: '2', count: 2, sum: 15.9373 },
+    { title: 1, val: '3', count: 1, sum: 5.2373 } 
+  ],
+  [ 
+    { title: 2, val: '1', count: 5, sum: 4593.175 },
+    { title: 2, val: '2', count: 1, sum: 2 },
+    { title: 2, val: '3', count: 2, sum: 10.1773 } 
+  ],
+  [ 
+    { title: 3, val: '1', count: 5, sum: 4587.1177 },
+    { title: 3, val: '2', count: 1, sum: 2 },
+    { title: 3, val: '3', count: 2, sum: 16.2346 } 
+  ],
+  [ 
+    { title: 4, val: '1', count: 4, sum: 4582.1777 },
+    { title: 4, val: '2', count: 2, sum: 15.9373 },
+    { title: 4, val: '3', count: 2, sum: 7.2373 } 
+  ] 
+]
+*/
