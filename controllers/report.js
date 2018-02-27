@@ -34,7 +34,7 @@ function print(opt) {
 
 module.exports = {
   index: async (req, res) => {
-    const data = await Shares.getStats()
+    const data = await Shares.getStats(6)
     data.report = print(data)
     res.send(data)
   }

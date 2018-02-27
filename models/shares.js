@@ -72,7 +72,7 @@ SharesSchema.statics = {
     const voteShares = util.sumByColumnName(voteSharesholders, 'shares')
     let statsDetail = []
     let tmp
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 6; i++) {
       tmp = util.filterAndGroupAndSumByColumn(voteSharesholders, {
         group: (item) => item['t' + i],
         colName: 'shares',

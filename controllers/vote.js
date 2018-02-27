@@ -8,13 +8,11 @@ module.exports = {
   vote: async (req, res, next) => {
     // todo: 验证data
     const data = (req.params.voteData || req.body.data || 0) + ''
-    const barCode = data.slice(0, 5)
+    const barCode = parseInt(data.slice(0, 5))
     const stats = data.slice(5)
-    const shareholder = await Shares.findOne({
-      barCode,
-      isPresent: true
-    }).exec()
-    if (shareholder) {
+    const shareholder = await Shares.findOne({ barCode, isPresent: 1 }).exec()
+    console.log('shareholder', shareholder)
+    if (shareholder && shareholder.isPresent) {
       shareholder.isVote = true
       for (let i = 0; i < stats.length; i++) {
         if (stats[i]) {
