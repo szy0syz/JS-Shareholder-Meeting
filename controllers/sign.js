@@ -50,8 +50,5 @@ module.exports = {
   },
   get: (req, res, next) => {
 
-  },
-  getByBarCode: (req, res, next, key, value) => {
-    const barCode = parseInt(req.query.barCode, 10)
   }
 }
